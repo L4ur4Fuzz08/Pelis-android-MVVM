@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PelisProApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_main_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondary_main_dark</item>
+        <item name="colorTertiary">@color/accent_main_dark</item>
+        <item name="android:windowBackground">@color/background_main_dark</item>
+        <item name="colorSurface">@color/background_main_dark</item>
+        <item name="colorOnSurface">@color/text_main_dark</item>
+        <!-- Para el FAB y Bottom Nav en modo oscuro -->
+        <item name="colorSecondaryContainer">@color/secondary_main_dark</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+    </style>
+</resources>

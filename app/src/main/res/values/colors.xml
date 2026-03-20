@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Tus colores de Realtime Colors -->
+    <color name="text_main">#0e0203</color>
+    <color name="background_main">#fefbfb</color>
+    <color name="secondary_main">#b9b6a7</color>
+    <color name="primary_main">#b2ff00</color>
+    <color name="accent_main">#c4ed4a</color>
+
+    <!--color dark-->
+    <color name="text_main_dark">#ffffff</color>
+    <color name="background_main_dark">#040101</color>
+    <color name="secondary_main_dark">#585546</color>
+    <color name="primary_main_dark">#b2ff00</color>
+    <color name="accent_main_dark">#8cb512</color>
+</resources>
+
+
+
+
+
