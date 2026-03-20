@@ -1,8 +1,14 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 }
-
+//se lee el archivo donde estan las variables
+val localPropertiesFile = rootProject.file("local.properties")
+val localProperties = Properties()
+localProperties.load(FileInputStream(localPropertiesFile))
 android {
     namespace = "com.example.pelisproapp"
     compileSdk = 36
@@ -13,7 +19,9 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
+        buildConfigField("String", "API_KEY", localProperties.getProperty("API_KEY"))
+        buildConfigField("String", "BASE_URL", localProperties.getProperty("BASE_URL"))
+        buildConfigField("String", "BASE_URL_IMAGE", localProperties.getProperty("BASE_URL_IMAGE"))
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,6 +46,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
