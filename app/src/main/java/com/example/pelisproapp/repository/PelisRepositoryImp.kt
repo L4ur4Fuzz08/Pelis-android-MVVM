@@ -1,18 +1,19 @@
 package com.example.pelisproapp.repository
 
+import com.example.pelisproapp.data.remote.PeliculaDataSource
 import com.example.pelisproapp.data.remote.model.PeliculaList
 
-class PelisRepositoryImp: PelisRepository {
+class PelisRepositoryImp(private val dataSource:PeliculaDataSource): PelisRepository {
     override suspend fun getUpcomingMovies(): PeliculaList {
-        TODO("Not yet implemented")
+        return dataSource.getUpcomingMovies()
     }
 
     override suspend fun getTopRatedMovies(): PeliculaList {
-        TODO("Not yet implemented")
+        return dataSource.getTopRatedMovies()
     }
 
     override suspend fun getPopularMovies(): PeliculaList {
-        TODO("Not yet implemented")
+        return dataSource.getPopularMovies()
     }
 
 
