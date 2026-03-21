@@ -23,18 +23,3 @@ class ApiKeyInterceptor(private val apiKey: String) : Interceptor {
     }
 }
 
-object RetrofitClient{
-
-    private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(ApiKeyInterceptor(BuildConfig.API_KEY))
-        .build()
-    val webService by lazy {
-        Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
-            .client(okHttpClient)
-            .build()
-            .create(WebSerice::class.java)
-    }
-
-}
