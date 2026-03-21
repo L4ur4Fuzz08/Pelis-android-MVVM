@@ -62,6 +62,12 @@ dependencies {
     //retrofit
     implementation(libs.retrofit)
     implementation (libs.converter.gson)
+    //okHttp
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    //viewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
