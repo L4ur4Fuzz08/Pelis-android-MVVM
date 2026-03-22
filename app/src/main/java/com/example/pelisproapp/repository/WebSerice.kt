@@ -12,11 +12,11 @@ import retrofit2.http.GET
 import java.util.logging.Level
 
 interface WebSerice {
-    @GET("movies/upcoming")
+    @GET("movie/upcoming")
     suspend fun getUpcomingMovies(): PeliculaList
-    @GET("movies/top_rated")
+    @GET("movie/top_rated")
     suspend fun getTopRatedMovies(): PeliculaList
-    @GET("movies/popular")
+    @GET("movie/popular")
     suspend fun getPopularMovies(): PeliculaList
 }
 
@@ -31,7 +31,7 @@ object RetrofitClient{
         .addInterceptor(ApiKeyInterceptor(BuildConfig.API_KEY))
         .addInterceptor(loggingInterceptor())
         .build()
-    val webService by lazy {
+    val webService: WebSerice by lazy {
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
