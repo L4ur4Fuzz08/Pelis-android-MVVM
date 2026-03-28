@@ -15,6 +15,6 @@ class PeliculaDataSource(private val webSerice: WebSerice) {
 
     suspend fun getPopularMovies(): PeliculaList{
 
-        return webSerice.getTopRatedMovies()
+        return webSerice.getPopularMovies()
     }
 }
