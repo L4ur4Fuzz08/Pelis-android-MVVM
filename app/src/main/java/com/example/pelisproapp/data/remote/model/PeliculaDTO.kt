@@ -1,6 +1,7 @@
 package com.example.pelisproapp.data.remote.model
 
 
+import com.example.pelisproapp.presentacion.model.Pelicula
 import com.google.gson.annotations.SerializedName
 
 data class PeliculaDTO(
@@ -32,6 +33,19 @@ data class PeliculaDTO(
     val voteAverage: Double? = null,
     @SerializedName("vote_count")
     val voteCount: Int? = null
-)
+){
+
+    fun toPelicula(): Pelicula = Pelicula(
+        id.toString(),
+        title?:"",
+        overview?:"",
+        posterPath?: "",
+        releaseDate?:"",
+        popularity?.toInt() ?: 0,
+        originalLanguage?:"",
+        voteAverage ?:0.0,
+        backdropPath?: ""
+    )
+}
 
 data class PeliculaList(val results: List<PeliculaDTO> = listOf())
