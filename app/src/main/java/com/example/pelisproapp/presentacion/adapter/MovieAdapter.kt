@@ -1,14 +1,18 @@
 package com.example.pelisproapp.presentacion.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.pelisproapp.BuildConfig
+import com.example.pelisproapp.R
 import com.example.pelisproapp.core.BaseViewHolder
 import com.example.pelisproapp.databinding.MovieItemBinding
 import com.example.pelisproapp.presentacion.model.Pelicula
 
-class MovieAdapter(private var movieList: List<Pelicula> = listOf(), private val itemClickListener: (Pelicula)->Unit): RecyclerView.Adapter<BaseViewHolder<*>>() {
+class MovieAdapter(private val context: Context, private var movieList: List<Pelicula> = listOf(), private val itemClickListener: (Pelicula)->Unit): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnMovieClickListener{
         fun onMovieClick(movie: Pelicula)
@@ -45,6 +49,12 @@ class MovieAdapter(private var movieList: List<Pelicula> = listOf(), private val
 
     private inner class MoviesViewHolder(val binding: MovieItemBinding) : BaseViewHolder<Pelicula>(binding.root) {
         override fun bind(item: Pelicula) {
+
+            Glide.with(context)
+                .load("${BuildConfig.BASE_URL_IMAGE}${item.peliculaPosterPath}")
+                .placeholder(R.drawable.green_snake_poster)
+                .centerCrop()
+                .into(binding.imgMovieScreen)
 
 
         }
