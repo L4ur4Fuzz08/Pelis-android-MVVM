@@ -9,7 +9,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import java.util.logging.Level
 
 interface WebSerice {
     @GET("movie/upcoming")
@@ -21,15 +20,13 @@ interface WebSerice {
 }
 
 object RetrofitClient{
-    private val loggingInterceptor ={
-        HttpLoggingInterceptor().apply {
-            if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-    }
 
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+       level=  if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
     }
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(ApiKeyInterceptor(BuildConfig.API_KEY))
-        .addInterceptor(loggingInterceptor())
+        .addInterceptor(loggingInterceptor)
         .build()
     val webService: WebSerice by lazy {
         Retrofit.Builder()
