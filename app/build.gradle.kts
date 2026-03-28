@@ -4,6 +4,9 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.safe.args)
+    alias(libs.plugins.parcelize)
+
 }
 //se lee el archivo donde estan las variables
 val localPropertiesFile = rootProject.file("local.properties")
@@ -57,6 +60,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    //nav fragments
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
     //gson depedency
     implementation(libs.gson)
     //retrofit
