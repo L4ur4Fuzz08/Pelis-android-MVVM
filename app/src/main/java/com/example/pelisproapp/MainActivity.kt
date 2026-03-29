@@ -44,37 +44,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configura los observadores que escucharán los cambios en el estado de los datos
-        setObservers()
+
+
 
 
 
     }
 
-    private fun setObservers() {
-        // Lanza una corrutina para observar el Flow de datos del ViewModel
-        lifecycleScope.launch {
-            /*
-               repeatOnLifecycle(STARTED): Suspende la recolección cuando la app va al fondo
-               y la reanuda cuando vuelve al frente, optimizando recursos y batería.
-            */
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                // Se suscribe al StateFlow 'movieState' para recibir actualizaciones
-                viewModel.movieState.collect{resource->
-                    when(resource){
-                        // Evalúa el estado actual de la petición (Cargando, Éxito o Error)
-                        is Resource.Loading-> {}
-                        is Resource.Success->{
-                            Log.e("PELICULAS", "upcoming: ${resource.data.t1}")
-                            Log.e("PELICULAS", "top-rated: ${resource.data.t2}")
-                            Log.e("PELICULAS", "popular: ${resource.data.t3}")
-                        }
-                        is Resource.Failure->{
-                            Toast.makeText(this@MainActivity, "error: ${resource.e.message}", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-            }
-        }
-    }
+
 }
