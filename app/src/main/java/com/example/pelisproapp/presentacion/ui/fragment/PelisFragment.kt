@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pelisproapp.core.Resource
@@ -106,7 +108,9 @@ class PelisFragment : Fragment() {
                 viewModel.movieState.collect{resource->
                     when(resource){
                         // Evalúa el estado actual de la petición (Cargando, Éxito o Error)
-                        is Resource.Loading-> {}
+                        is Resource.Loading-> {
+                            binding.rlProgressBar.visibility = View.VISIBLE
+                        }
                         is Resource.Success->{
                             binding.rlProgressBar.visibility = View.GONE
                             topRatedMoviesAdapter.updateAdapter(resource.data.topRated)
@@ -116,6 +120,7 @@ class PelisFragment : Fragment() {
                             setRecyclerMovies()
                         }
                         is Resource.Failure->{
+                            binding.rlProgressBar.visibility = View.GONE
                             Toast.makeText(requireContext(), "error: ${resource.e.message}", Toast.LENGTH_SHORT).show()
                         }
                     }
@@ -125,7 +130,8 @@ class PelisFragment : Fragment() {
     }
 
     private fun onMovieClick(item: Pelicula){
-        Toast.makeText(requireContext(), "click: ${item.peliculaTitle}", Toast.LENGTH_SHORT).show()
+        val directions = PelisFragmentDirections.actionPelisFragmentToPelisDetailFragment(item)
+        findNavController(binding.root).navigate(directions)
     }
 
     private fun setRecyclerMovies(){
@@ -134,6 +140,8 @@ class PelisFragment : Fragment() {
             adapter = concatAdapter
         }
     }
+
+
 
 
 }
