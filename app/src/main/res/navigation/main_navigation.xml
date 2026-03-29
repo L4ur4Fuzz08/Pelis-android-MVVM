@@ -9,5 +9,19 @@
         android:id="@+id/pelisFragment"
         android:name="com.example.pelisproapp.presentacion.ui.fragment.PelisFragment"
         android:label="fragment_pelis"
-        tools:layout="@layout/fragment_pelis" />
+        tools:layout="@layout/fragment_pelis" >
+        <action
+            android:id="@+id/action_pelisFragment_to_pelisDetailFragment"
+            app:destination="@id/pelisDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pelisDetailFragment"
+        android:name="com.example.pelisproapp.presentacion.ui.fragment.PelisDetailFragment"
+        android:label="fragment_pelis_detail"
+        tools:layout="@layout/fragment_pelis_detail" >
+        <argument
+            android:name="PELICULA_DETAIL"
+            app:argType="com.example.pelisproapp.presentacion.model.Pelicula"
+            app:nullable="true" />
+    </fragment>
 </navigation>
