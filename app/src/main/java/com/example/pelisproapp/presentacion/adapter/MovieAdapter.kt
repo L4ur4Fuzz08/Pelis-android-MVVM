@@ -12,7 +12,8 @@ import com.example.pelisproapp.core.BaseViewHolder
 import com.example.pelisproapp.databinding.MovieItemBinding
 import com.example.pelisproapp.presentacion.model.Pelicula
 
-class MovieAdapter(private val context: Context, private var movieList: List<Pelicula> = listOf(), private val itemClickListener: (Pelicula)->Unit): RecyclerView.Adapter<BaseViewHolder<*>>() {
+
+class MovieAdapter(private val context: Context, private var movieList: List<Pelicula> = listOf(), private val onItemClick: (pelicula:Pelicula)->Unit): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnMovieClickListener{
         fun onMovieClick(movie: Pelicula)
@@ -24,9 +25,7 @@ class MovieAdapter(private val context: Context, private var movieList: List<Pel
         itemBinding.root.setOnClickListener{
             val position = holder.bindingAdapterPosition.takeIf{ it != DiffUtil.DiffResult.NO_POSITION}
                 ?:return@setOnClickListener
-            itemClickListener.invoke(
-                movieList[position]
-            )
+            onItemClick.invoke(movieList[position])
 
 
         }
