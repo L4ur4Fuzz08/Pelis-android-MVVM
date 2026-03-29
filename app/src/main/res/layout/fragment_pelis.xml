@@ -10,8 +10,9 @@
         android:id="@+id/tvTitleMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MIS PELIS"
+        android:text="@string/title_main"
         android:gravity="center"
+        android:textAllCaps="true"
         android:layout_marginVertical="10dp"
         android:layout_alignParentTop="true"
         android:textColor="@color/black"
@@ -36,7 +37,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/tvTitleMain"
         android:orientation="vertical"
-        tools:listitem="@layout/movie_item"
+        tools:listitem="@layout/popular_movie_row"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </RelativeLayout>
