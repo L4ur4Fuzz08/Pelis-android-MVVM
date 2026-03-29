@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">PelisProApp</string>
-
+    <!--movies screen-->
+    <string name="title_main">mis pelis</string>
     <!--movies cathegories titles-->
     <string name="txt_upcoming_movies">Upcoming Movies</string>
     <string name="txt_popular_movies">Popular Movies</string>
     <string name="txt_top_rated_movies">Top Rated Movies</string>
+    <!--detail screen labels-->
+    <string name="txt_bookmark">Bookmark</string>
+    <string name="txt_favorite">Favorite</string>
+    <string name="txt_share">Share</string>
+    <string name="txt_overview">Overview</string>
+
 </resources>
