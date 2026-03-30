@@ -16,7 +16,7 @@ ___
 
 |                     Main                      |                     Detail                      |
 | :-------------------------------------------: | :---------------------------------------------: |
-| <img src="main_pelis_screen.png" width="300"> | <img src="detail_pelis_screen.png" width="300"> |
+| <img src="./assets/main_pelis_screen.png" width="300"> | <img src="./assets/detail_pelis_screen.png" width="300"> |
 |     **Picture 1:** Main Navigation Screen     |          **Picture 2:** Detail Screen           |
 
 ## 🛠️Tools:
